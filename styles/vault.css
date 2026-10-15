@@ -1,0 +1,101 @@
+.vault-section {
+    padding: 5rem;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 80px;
+}
+
+.section-header {
+ text-align: center;
+ margin-bottom: 3rem;   
+}
+
+.section-tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+}
+
+.section-title {
+    font-family: var(--title-font);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-left: 0.5rem;
+    
+}
+
+.section-decription {
+    color: var(--dim);
+    font-size: 0.95rem;
+    max-width: 0  auto;
+
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.stats-card {
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform var(--tranistion), border-color var(--transition);
+}
+
+.stats-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-2px);
+}
+
+.stats-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+}
+
+.stats-value {
+    font-family: var(--title-font);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1.1;
+}
+
+.cap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.cap-bar-wrapper {
+    background: #1a1a1a;
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+#cap-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg,  var(--gold), var(--ligh-gold) );
+    width: 0%;
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+#cap-status-text {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
