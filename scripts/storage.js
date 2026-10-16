@@ -5,11 +5,11 @@ export function getStoredBooks() {
     return saved ? JSON.parse(saved) : null;
 }
 
-export function savedBooks(books) {
+export function saveBooks(books) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
 }
 
 export async function fetchSeedBooks() {
-    const res = await fetch('.seed.json');
+    const res = await fetch('./seed.json');
     return await res.json();
 }
