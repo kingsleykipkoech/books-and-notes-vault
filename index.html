@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Notes Vault</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/vault.css">
+</head>
+<body>
+    <a href="#catalog" class="skip-to-content">Skip to content</a>
+
+    <!-- 1. NAVIGATION -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">VAULT</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Featured</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button id="open-modal-btn" class="btn-new-book">+ Add Book [N]</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. HERO SPOTLIGHT -->
+        <section id="hero" class="hero">
+            <div class="spotlight-card">
+                <img src="assets/book-cover.jpg" alt="Computer Systems" class="spotlight-cover">
+                <div class="spotlight-info">
+                    <span class="spotlight-tag">Pick of the Month</span>
+                    <h2 class="spotlight-title">Computer Systems</h2>
+                    <p class="spotlight-author">by Randal Bryant & David O'Hallaron</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                        Foundations of architecture, memory hierarchy & hardware-software interface.
+                    </p>
+                    <a href="#catalog" style="color: var(--gold); text-decoration: none; margin-top: 0.5rem; font-size: 0.9rem;">View Catalog &rarr;</a>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h1>Nurturing Knowledge. Empowering Mastery.</h1>
+                <p>Curated technical volumes, architectural notes, and foundational computer science texts.</p>
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <a href="#catalog" class="btn-new-book" style="display: inline-block; text-decoration: none;">Explore Catalog</a>
+                    <button id="btn-export-json" class="filter-btn">Export JSON</button>
+                    <label class="filter-btn" style="cursor: pointer; display: inline-block;">
+                        Import JSON
+                        <input type="file" id="btn-import-json" accept=".json" style="display: none;">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. STATS DASHBOARD -->
+        <section id="dashboard" class="vault-section">
+            <div class="section-header">
+                <span class="section-tagline">Metrics</span>
+                <h2 class="section-title">Reading Dashboard</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <span class="stats-label">Total Books</span>
+                    <span id="stat-total-books" class="stats-value">0</span>
+                </div>
+                <div class="stats-card">
+                    <span class="stats-label">Total Pages</span>
+                    <span id="stat-total-pages" class="stats-value">0</span>
+                </div>
+                <div class="stats-card">
+                    <span class="stats-label">Average Pages / Book</span>
+                    <span id="stat-avg-pages" class="stats-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CATALOG ARCHIVES -->
+        <section id="catalog" class="vault-section">
+            <div class="section-header">
+                <span class="section-tagline">Archives</span>
+                <h2 class="section-title">Explore Catalog</h2>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div style="max-width: 600px; margin: 0 auto 2rem;">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search by title, author, or keyword (press '/' to focus)...">
+                </div>
+                <p id="search-feedback" style="font-size: 0.8rem; color: var(--text-subtle); margin-top: 0.5rem; text-align: center;"></p>
+            </div>
+
+            <!-- DYNAMIC CATEGORY FILTERS -->
+            <div id="filter-bar" class="filter-bar"></div>
+
+            <!-- BOOK GRID -->
+            <div id="book-grid" class="book-grid"></div>
+        </section>
+
+        <!-- 5. ABOUT SECTION -->
+        <section id="about" class="vault-section">
+            <div class="section-header">
+                <span class="section-tagline">Author & Project</span>
+                <h2 class="section-title">About the Vault</h2>
+            </div>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center; color: var(--text-muted); line-height: 1.8;">
+                <p>The Books & Notes Vault is a digital personal library engineered to catalog, search, and manage reading collections locally with zero external dependencies.</p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">GitHub Profile &rarr;</a>
+                    <a href="https://github.com/kingsleykipkoech/books-and-notes-vault" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">Repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 3rem 1rem; border-top: 1px solid var(--card-border); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>&copy; 2026 Books & Notes Vault. Built with modern web standards.</p>
+    </footer>
+
+    <!-- ADD BOOK MODAL -->
+    <div id="book-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--gold);">Add Book</h3>
+            <form id="add-book-form">
+                <div class="form-group">
+                    <label for="book-title">Title *</label>
+                    <input type="text" id="book-title" required placeholder="e.g. Clean Architecture">
+                    <small id="err-title" style="color: #ff5555; font-size: 0.75rem; display: none;">Title cannot have leading/trailing whitespace</small>
+                </div>
+                <div class="form-group">
+                    <label for="book-author">Author *</label>
+                    <input type="text" id="book-author" required placeholder="e.g. Robert C. Martin">
+                    <small id="err-author" style="color: #ff5555; font-size: 0.75rem; display: none;">Author must only contain letters, spaces, or hyphens</small>
+                </div>
+                <div class="form-group">
+                    <label for="book-tag">Category</label>
+                    <input type="text" id="book-tag" required placeholder="e.g. Systems, Fantasy, AI, Math">
+                </div>
+                <div class="form-group">
+                    <label for="book-pages">Pages</label>
+                    <input type="number" id="book-pages" min="1" placeholder="e.g. 450">
+                </div>
+                <div class="form-group">
+                    <label for="book-isbn">ISBN (optional)</label>
+                    <input type="text" id="book-isbn" placeholder="e.g. 978-0134494166">
+                    <small id="err-isbn" style="color: #ff5555; font-size: 0.75rem; display: none;">Invalid ISBN format</small>
+                </div>
+                <div class="form-group">
+                    <label>Cover Image (Upload from device)</label>
+                    <label for="book-image-file" class="upload-box" id="upload-status">
+                        Choose cover image from device
+                    </label>
+                    <input type="file" id="book-image-file" accept="image/*" style="display: none;">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="close-modal-btn" class="filter-btn">Cancel [Esc]</button>
+                    <button type="submit" class="btn-new-book">Save to Vault</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODULAR ES SCRIPT -->
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
