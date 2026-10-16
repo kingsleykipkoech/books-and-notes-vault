@@ -10,7 +10,7 @@
     "notes": "The iconic mafia chronicle that inspired Francis Ford Coppola's masterpiece franchise.",
     "createdAt": "2026-09-15T08:30:00.000Z",
     "updatedAt": "2026-09-15T08:30:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/godfather.jpg"
   },
   {
     "id": "rec_0002",
@@ -23,7 +23,7 @@
     "notes": "Classic tale of true love and high adventure, read by the grandfather in the movie.",
     "createdAt": "2026-09-20T10:15:00.000Z",
     "updatedAt": "2026-09-20T10:15:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/princess.jpg"
   },
   {
     "id": "rec_0003",
@@ -36,7 +36,7 @@
     "notes": "The satirical novel outlining the extraordinary, history-shaping life of Forrest Gump.",
     "createdAt": "2026-09-25T14:00:00.000Z",
     "updatedAt": "2026-09-25T14:00:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/forestgump.jpg"
   },
   {
     "id": "rec_0004",
@@ -49,7 +49,7 @@
     "notes": "The raw counter-culture novel adapted into David Fincher's iconic cult film.",
     "createdAt": "2026-09-28T16:20:00.000Z",
     "updatedAt": "2026-09-28T16:20:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/fightclub.jpg"
   },
   {
     "id": "rec_0005",
@@ -62,7 +62,7 @@
     "notes": "The haunted hotel masterpiece adapted into Stanley Kubrick's psychological horror film.",
     "createdAt": "2026-10-01T09:00:00.000Z",
     "updatedAt": "2026-10-01T09:00:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/shining.jpg"
   },
   {
     "id": "rec_0006",
@@ -75,7 +75,7 @@
     "notes": "The monumental epic high-fantasy trilogy brought to life by Peter Jackson.",
     "createdAt": "2026-10-02T11:45:00.000Z",
     "updatedAt": "2026-10-02T11:45:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/rings.jpg"
   },
   {
     "id": "rec_0007",
@@ -88,7 +88,7 @@
     "notes": "The intense psychological thriller that inspired the Oscar-winning movie starring Anthony Hopkins.",
     "createdAt": "2026-10-03T13:10:00.000Z",
     "updatedAt": "2026-10-03T13:10:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/lamb.jpg"
   },
   {
     "id": "rec_0008",
@@ -101,7 +101,7 @@
     "notes": "The gripping dystopian survival tournament book that launched a massive film franchise.",
     "createdAt": "2026-10-04T15:20:00.000Z",
     "updatedAt": "2026-10-04T15:20:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/hunger.jpg"
   },
   {
     "id": "rec_0009",
@@ -114,7 +114,7 @@
     "notes": "The sci-fi techno-thriller about cloned dinosaurs that became Spielberg's blockbuster.",
     "createdAt": "2026-10-05T07:50:00.000Z",
     "updatedAt": "2026-10-05T07:50:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/jurrasic.jpg"
   },
   {
     "id": "rec_0010",
@@ -127,7 +127,7 @@
     "notes": "The cosmology book read by a wizard in Harry Potter and the Prisoner of Azkaban.",
     "createdAt": "2026-10-06T12:00:00.000Z",
     "updatedAt": "2026-10-06T12:00:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/history.jpg"
   },
   {
     "id": "rec_0011",
@@ -140,6 +140,6 @@
     "notes": "The novella that served as the basis for Apocalypse Now and prominently featured in Call Me By Your Name.",
     "createdAt": "2026-10-06T14:10:00.000Z",
     "updatedAt": "2026-10-06T14:10:00.000Z",
-    "cover": "./assets/book-cover.jpg"
+    "cover": "./assets/heart.jpg"
   }
 ]
