@@ -16,6 +16,10 @@ export function removeBook(id) {
     state.books = state.books.filter(b => b.id !== id);
 }
 
+export function setFilter(tag) {
+    state.currentFilter = tag;
+}
+
 export function setSearchQuery(query) {
     state.searchQuery = query;
 }
