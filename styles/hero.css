@@ -97,3 +97,34 @@
     width: 100%;
     outline: none;
 }
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border-radius: 8px;
+    padding: 0.64rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: normal;
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0.4px 15px rgba(212, 168, 75, 0.15);
+}

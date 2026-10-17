@@ -8,7 +8,7 @@ export function setBooks(newBooks) {
     state.books =newBooks;
 }
 
-export function addBooks(book) {
+export function addBook(book) {
     state.books.unshift(book);
 }
 
@@ -22,4 +22,10 @@ export function setFilter(tag) {
 
 export function setSearchQuery(query) {
     state.searchQuery = query;
+}
+export function updateBook(updateBook) {
+    const index = state.books.findIndex(b => b.id === updateBook.id);
+    if (index !== -1) {
+        state.books[index] = { ...state.books[index], ...updateBook };
+    }
 }
