@@ -6,7 +6,7 @@ A curated digital archive and reading catalog dedicated to world-renowned books 
 
 ## Live Links
 - **Live websites**: [https://kingsleykipkoech.github.io/books-and-notes-vault/](https://kingsleykipkoech.github.io/books-and-notes-vault/)
-- **MY  VIDEO**: [https://kingsleykipkoech.github.io/books-and-notes-vault/test.html](https://kingsleykipkoech.github.io/books-and-notes-vault/test.html)
+- **MY  VIDEO**: [https://docs.google.com/videos/d/1t_2LVpIh2dJF6JmoW-f8SFMZAEN3YCj_fW6qvA0kAio/play?usp=sharing](https://docs.google.com/videos/d/1t_2LVpIh2dJF6JmoW-f8SFMZAEN3YCj_fW6qvA0kAio/play?usp=sharing)
 
 ---
 
