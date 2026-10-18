@@ -20,7 +20,7 @@ export function filterBooks(books, searchRaw, currentFilter) {
     }
 
     const filtered = books.filter(b => {
-        const matchesQuery = !regex || regex.test(b.title) || regex.test(b.author) || regex.test(b.tag || '');
+        const matchesQuery = !regex || regex.test(b.title) || regex.test(b.author) || regex.test(b.tag || '') || regex.test(b.notes || '');
         const matchesTag = currentFilter === 'all' || (b.tag && b.tag.toLowerCase() === currentFilter.toLowerCase());
         return matchesQuery && matchesTag;
     });
