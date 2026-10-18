@@ -27,33 +27,32 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#preferences" id="open-preferences-btn">Preferences</a></li>
             </ul>
-            <button id="open-modal-btn" class="btn-new-book">+ Add Book </button>
+            <button id="open-modal-btn" class="btn-new-book">Add Book</button>
         </nav>
     </header>
 
     <main>
-        <!-- 2. HERO SPOTLIGHT -->
+        <!-- 2. HERO page -->
         <section id="hero" class="hero">
             <div class="spotlight-card">
-                <img src="assets/book-cover.jpg" alt="Computer Systems" class="spotlight-cover">
+                <img id="spotlight-cover" src="assets/book-cover.jpg" alt="Featured Book" class="spotlight-cover">
                 <div class="spotlight-info">
-                    <span class="spotlight-tag">Pick of the Month</span>
-                    <h2 class="spotlight-title">Computer Systems</h2>
-                    <p class="spotlight-author">by Randal Bryant & David O'Hallaron</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-                        Foundations of architecture, memory hierarchy & hardware-software interface.
-                    </p>
+                    <span class="spotlight-tag"> My Best Pick </span>
+                    <h2 id="spotlight-title" class="spotlight-title"></h2>
+                    <p id="spotlight-author" class="spotlight-author"></p>
+                    <p id="spotlight-notes" style="color: var(--text-subtle); font-size: 0.9rem; margin-top: 0.5rem;"></p>
                     <a href="#catalog" style="color: var(--gold); text-decoration: none; margin-top: 0.5rem; font-size: 0.9rem;">View Catalog &rarr;</a>
                 </div>
             </div>
 
             <div class="hero-content">
-                <h1>FROM  BOOKS  WRITTEN  TO  MOVIES  SHOWN.</h1>
-                <p>World's  top  books  that  was used  to  make  an  absolute  mastrpiece  movies.</p>
-                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <h1>FROM  BOOKS  WRITTEN  TO CREATING TOP MOVIES & SHOWS.</h1>
+                <p id="reader-motto-display" style="font-style: italic; color: var(--gold); font-size: 1.15rem; margin-bottom: 0.75rem;">&ldquo;Spiced  and   spiced  top  shows.&rdquo;</p>
+                <p>World's  top  books  that  was used  to  make  an  absolute  masterpiece  movies.</p>
+                <div class="hero-actions">
                     <a href="#catalog" class="btn-new-book" style="display: inline-block; text-decoration: none;">Explore Catalog</a>
-                    <button id="btn-export-json" class="filter-btn">Export JSON</button>
-                    <label class="filter-btn" style="cursor: pointer; display: inline-block;">
+                    <button id="btn-export-json" class="btn-secondary">Export JSON</button>
+                    <label class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center;">
                         Import JSON
                         <input type="file" id="btn-import-json" accept=".json" style="display: none;">
                     </label>
@@ -84,11 +83,11 @@
             </div>
         </section>
 
-        <!-- 4. CATALOG ARCHIVES -->
+        <!-- 4. CATALOG  -->
         <section id="catalog" class="vault-section">
             <div class="section-header">
                 <span class="section-tagline">Archives</span>
-                <h2 class="section-title">Explore Catalog</h2>
+                <h2 class="section-title">Explore Catalog / Book store</h2>
             </div>
 
             <!-- SEARCH BAR -->
@@ -99,7 +98,7 @@
                 <p id="search-feedback" style="font-size: 0.8rem; color: var(--text-subtle); margin-top: 0.5rem; text-align: center;"></p>
             </div>
 
-            <!-- DYNAMIC CATEGORY FILTERS -->
+            <!--  FILTERS -->
             <div id="filter-bar" class="filter-bar"></div>
 
             <!-- BOOK GRID -->
@@ -109,14 +108,14 @@
         <!-- 5. ABOUT SECTION -->
         <section id="about" class="vault-section">
             <div class="section-header">
-                <span class="section-tagline">Author & Project</span>
-                <h2 class="section-title">About the Vault</h2>
+                <span class="section-tagline">ABOUT</span>
+                <h2 class="section-title">Project</h2>
             </div>
-            <div style="max-width: 700px; margin: 0 auto; text-align: center; color: var(--text-muted); line-height: 1.8;">
-                <p>The Books & Notes Vault is a digital personal library engineered to catalog, search, and manage reading collections locally with zero external dependencies.</p>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center; color: var(--text-subtle); line-height: 1.8;">
+                <p>Everything people do, they usually get inspired by something. This project is set to highlight books in the world that inspired people to create shows from them in order to preserve culture.</p>
                 <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
-                    <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">GitHub Profile &rarr;</a>
-                    <a href="https://github.com/kingsleykipkoech/books-and-notes-vault" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">Repository &rarr;</a>
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">My GitHub Profile</a>
+                    <a href="https://github.com/kingsleykipkoech/books-and-notes-vault" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.95rem;">Project Repository</a>
                 </div>
             </div>
         </section>
@@ -124,36 +123,47 @@
 
     <!-- FOOTER -->
     <footer style="text-align: center; padding: 3rem 1rem; border-top: 1px solid var(--card-border); color: var(--text-subtle); font-size: 0.85rem;">
-        <p>&copy; 2026 Books & Notes Vault. Built with modern web standards.</p>
+        <p>Books &amp; Notes Vault. &bull; <a href="test.html" style="color: var(--gold); text-decoration: none;">Run Tests file</a></p>
     </footer>
 
-    <!-- ADD BOOK MODAL -->
+    <!-- ADD BOOK  -->
     <div id="book-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content">
-            <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--gold);">Add Book</h3>
+            <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 1rem; color: var(--gold);">Add Book</h3>
             <form id="add-book-form">
+                <input type="hidden" id="book-edit-id">
                 <div class="form-group">
                     <label for="book-title">Title *</label>
-                    <input type="text" id="book-title" required placeholder="e.g. Clean Architecture">
-                    <small id="err-title" style="color: #ff5555; font-size: 0.75rem; display: none;">Title cannot have leading/trailing whitespace</small>
+                    <input type="text" id="book-title" required placeholder="title..">
+                    <small id="err-title" style="color: #ff5555; font-size: 0.75rem; display: none;">Title cannot have whitespace at the beginning</small>
                 </div>
                 <div class="form-group">
                     <label for="book-author">Author *</label>
-                    <input type="text" id="book-author" required placeholder="e.g. Robert C. Martin">
-                    <small id="err-author" style="color: #ff5555; font-size: 0.75rem; display: none;">Author must only contain letters, spaces, or hyphens</small>
+                    <input type="text" id="book-author" required placeholder="name..">
+                    <small id="err-author" style="color: #ff5555; font-size: 0.75rem; display: none;">Author names must only contain letters, spaces, or hyphens</small>
                 </div>
                 <div class="form-group">
                     <label for="book-tag">Category</label>
-                    <input type="text" id="book-tag" required placeholder="e.g. Systems, Fantasy, AI, Math">
+                    <input type="text" id="book-tag" required placeholder="category">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="form-group">
+                        <label for="book-pages">Pages</label>
+                        <input type="number" id="book-pages" min="1" placeholder="000">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-isbn">ISBN (optional)</label>
+                        <input type="text" id="book-isbn">
+                        <small id="err-isbn" style="color: #ff5555; font-size: 0.75rem; display: none;">Invalid ISBN </small>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="book-pages">Pages</label>
-                    <input type="number" id="book-pages" min="1" placeholder="e.g. 450">
+                    <label for="book-notes">Synopsis / Notes</label>
+                    <textarea id="book-notes" rows="2" placeholder="Enter book synopsis, overview, or favorite quote..."></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="book-isbn">ISBN (optional)</label>
-                    <input type="text" id="book-isbn" placeholder="e.g. 978-0134494166">
-                    <small id="err-isbn" style="color: #ff5555; font-size: 0.75rem; display: none;">Invalid ISBN format</small>
+                <div class="form-group" style="flex-direction: row; align-items: center; gap: 0.6rem; margin: 0.25rem 0 0.75rem;">
+                    <input type="checkbox" id="book-spotlight" style="width: auto; cursor: pointer;">
+                    <label for="book-spotlight" style="cursor: pointer; margin: 0; color: var(--white-text);">Feature as your best Pick </label>
                 </div>
                 <div class="form-group">
                     <label>Cover Image (Upload from device)</label>
@@ -164,13 +174,40 @@
                 </div>
                 <div class="modal-actions">
                     <button type="button" id="close-modal-btn" class="filter-btn">Cancel [Esc]</button>
-                    <button type="submit" class="btn-new-book">Save to Vault</button>
+                    <button type="submit" class="btn-new-book">Save</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODULAR ES SCRIPT -->
+    <!-- PREFERENCES MODAL -->
+    <div id="preferences-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="pref-modal-title">
+        <div class="modal-content">
+            <h3 id="pref-modal-title" style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--gold);">Preferences</h3>
+            
+            <div class="form-group">
+                <label for="pref-motto-input"> Quote</label>
+                <input type="text" id="pref-motto-input">
+                <small style="color: var(--text-subtle); font-size: 0.75rem; margin-top: 0.25rem;">Displayed in the hero homepage.</small>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border);">
+                <label style="font-size: 0.85rem; color: var(--text-subtle); display: block; margin-bottom: 0.75rem;">Data Handling</label>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" id="pref-export-btn" class="btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Export JSON</button>
+                    <label class="btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem; cursor: pointer; margin: 0;">
+                        Import JSON
+                        <input type="file" id="pref-import-btn" accept=".json" style="display: none;">
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-actions" style="margin-top: 2rem;">
+                <button type="button" id="close-preferences-btn" class="filter-btn">Cancel</button>
+                <button type="button" id="save-preferences-btn" class="btn-new-book">Save Preferences</button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="scripts/app.js"></script>
 </body>
 </html>
