@@ -1,34 +1,76 @@
 .hero {
     min-height: 85vh;
-    padding: 8rem 2.5rem 4rem;
+    padding: 8rem 2.5rem 5rem;
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212, 168, 75, 0.08) 0%, rgba(212, 168, 75, 0.02) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(60px);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    right: 0%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 168, 75, 0.05) 0%, rgba(255, 255, 255, 0.015) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(60px);
 }
 
 @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 6rem; gap: 2.5rem; }
+    .hero { grid-template-columns: 1fr; padding-top: 6rem; gap: 2.5rem; align-items: stretch; }
 }
 
 .spotlight-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-    border: 1px solid var(--gold-border);
+    border: 1px solid rgba(212, 168, 75, 0.25);
     border-radius: 16px;
-    padding: 2.5rem;
+    padding: 3.5rem 4.5rem;
     display: flex;
     gap: 2rem;
     position: relative;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform var(--transistion), border-color var(--transistion), box-shadow var(--transistion);
+    width: 100%;
+    max-width: 880px;
+    min-height: 550px;
+    align-items: center;
+    z-index: 1;
+}
+
+.spotlight-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(212, 168, 75, 0.25);
 }
 
 .spotlight-cover {
-    width: 160px;
-    height: 230px;
+    width: 240px;
+    height: 360px;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     flex-shrink: 0;
 }
@@ -52,28 +94,39 @@
     font-family: var(--font-serif);
     font-size: 2rem;
     line-height: 1.2;
-    color: var(--text-white);
+    color: var(--white-text);
 }
 
 .spotlight-author {
-    color: var(--text-muted);
+    color: var(--dim);
     font-size: 0.95rem;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    align-self: flex-end;
+    max-width: 520px;
+    padding-bottom: 1.5rem;
 }
 
 .hero-content h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: var(--text-white);
+    font-size: clamp(2.4rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--white-text);
+    letter-spacing: 0.02em;
 }
 
 .hero-content p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    color: var(--dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     max-width: 500px;
 }
+
 
 .search-box {
     display: flex;
@@ -82,7 +135,7 @@
     border: 1px solid var(--card-border);
     border-radius: 10px;
     padding: 0.5rem 1rem;
-    transition: var(--transition);
+    transition: var(--transistion);
 }
 
 .search-box:focus-within {
@@ -92,7 +145,7 @@
 .search-box input {
     background: transparent;
     border: none;
-    color: var(--text-white);
+    color: var(--white-text);
     font-size: 1rem;
     width: 100%;
     outline: none;
@@ -108,7 +161,7 @@
 .btn-secondary {
     background: transparent;
     border: 1px solid var(--card-border);
-    color: var(--text-muted);
+    color: var(--dim);
     font-weight: 500;
     font-size: 0.95rem;
     font-family: inherit;
@@ -126,5 +179,5 @@
     border-color: var(--gold);
     color: var(--gold);
     transform: translateY(-2px);
-    box-shadow: 0.4px 15px rgba(212, 168, 75, 0.15);
+    box-shadow: 0 4px 15px rgba(212, 168, 75, 0.15);
 }
