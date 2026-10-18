@@ -5,9 +5,8 @@ A curated digital archive and reading catalog dedicated to world-renowned books 
 ---
 
 ## Live Links
-- **Live Application**: [https://kingsleykipkoech.github.io/books-and-notes-vault/](https://kingsleykipkoech.github.io/books-and-notes-vault/)
-- **Source Code**: [https://github.com/kingsleykipkoech/books-and-notes-vault](https://github.com/kingsleykipkoech/books-and-notes-vault)
-- **Feature Verification**: [https://kingsleykipkoech.github.io/books-and-notes-vault/test.html](https://kingsleykipkoech.github.io/books-and-notes-vault/test.html)
+- **Live websites**: [https://kingsleykipkoech.github.io/books-and-notes-vault/](https://kingsleykipkoech.github.io/books-and-notes-vault/)
+- **MY  VIDEO**: [https://kingsleykipkoech.github.io/books-and-notes-vault/test.html](https://kingsleykipkoech.github.io/books-and-notes-vault/test.html)
 
 ---
 
@@ -193,23 +192,9 @@ books-and-notes-vault/
     └── vault.css           Catalog grid, stats counters, and modal layouts
 ```
 
----
-
-## Feature Verification Suite
-
-An in-browser verification suite is included at `test.html`. It tests 14 core functional requirements across 4 categories:
-
-1. **Search & Filters**: Multi-field query matching, category isolation, broken regex resilience, and visual mark highlighting.
-2. **Form Validation**: Acceptance of clean input, rejection of empty titles, rejection of empty authors, and detection of malformed ISBN formats.
-3. **Vault Data & Storage**: Initial state loading, record addition with notes/spotlight flags, record editing, and removal.
-4. **Dashboard Calculations**: Accurate summation of total pages and computation of average page density.
-
-Access the test runner directly at [test.html](https://kingsleykipkoech.github.io/books-and-notes-vault/test.html) or via the **Run Tests file** link in the site footer.
-
----
 
 ## Author
 
 - **Kingsley Kipkoech**
-  - GitHub: [https://github.com/kingsleykipkoech](https://github.com/kingsleykipkoech)
-  - Project Repository: [https://github.com/kingsleykipkoech/books-and-notes-vault](https://github.com/kingsleykipkoech/books-and-notes-vault)
+  - My GitHub: [https://github.com/kingsleykipkoech](https://github.com/kingsleykipkoech)
+  - Github Project Repository: [https://github.com/kingsleykipkoech/books-and-notes-vault](https://github.com/kingsleykipkoech/books-and-notes-vault)
