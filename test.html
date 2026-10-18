@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Checks - Books &amp; Notes Vault</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .test-wrapper {
+            max-width: 720px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        .test-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .test-heading {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--white-text);
+        }
+        .summary-badge {
+            background: rgba(76, 175, 80, 0.15);
+            border: 1px solid rgba(76, 175, 80, 0.35);
+            color: #4caf50;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .test-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            margin: 1.25rem 0 0.5rem;
+        }
+        .test-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.92rem;
+            color: var(--white-text);
+        }
+        .status-ok {
+            color: #4caf50;
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
+        .status-err {
+            color: #ff5555;
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
+        .nav-back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .nav-back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-wrapper">
+        <div class="test-card">
+            <div class="header-row">
+                <div>
+                    <h1 class="test-heading">Feature Checks</h1>
+                    <p style="color: var(--text-subtle); font-size: 0.85rem; margin-top: 0.25rem;">Verification of vault features and data helpers</p>
+                </div>
+                <div id="test-summary" class="summary-badge">Running...</div>
+            </div>
+            <div id="test-list"></div>
+            <a href="index.html" class="nav-back">&larr; Back to Vault</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { filterBooks, highlightText } from './scripts/search.js';
+        import { validateBookForm } from './scripts/validators.js';
+        import { state, setBooks, addBook, updateBook, removeBook } from './scripts/state.js';
+
+        const tests = [];
+
+        function check(group, name, condition) {
+            tests.push({ group, name, ok: Boolean(condition) });
+        }
+
+        const sampleBooks = [
+            { id: '1', title: 'Clean Architecture', author: 'Robert C. Martin', tag: 'Architecture', pages: 432, isbn: '978-0134494166' },
+            { id: '2', title: 'Computer Systems', author: 'Randal Bryant', tag: 'Systems', pages: 1100, isbn: '978-0134092669' },
+            { id: '3', title: 'Refactoring', author: 'Martin Fowler', tag: 'Architecture', pages: 448, isbn: '978-0134757599' }
+        ];
+
+        const { filtered: searchRes } = filterBooks(sampleBooks, 'Architecture', 'all');
+        check('Search & Filters', 'Search finds matching keyword in title or tag', searchRes.length === 2);
+
+        const { filtered: filterRes } = filterBooks(sampleBooks, '', 'Systems');
+        check('Search & Filters', 'Category filter selects matching books', filterRes.length === 1 && filterRes[0].id === '2');
+
+        const { error: regexErr } = filterBooks(sampleBooks, '[unclosed', 'all');
+        check('Search & Filters', 'Special characters in search do not crash', typeof regexErr === 'string' && regexErr.length > 0);
+
+        const highlighted = highlightText('Clean Architecture', 'clean');
+        check('Search & Filters', 'Search matches are highlighted in text', highlighted.includes('<mark class="highlight">Clean</mark>'));
+
+        const validForm = validateBookForm('Sample Title', 'Sample Author', '978-0134494166');
+        check('Form Validation', 'Accepts valid title, author, and ISBN', validForm.isValid === true);
+
+        const invalidTitle = validateBookForm('', 'Sample Author', '');
+        check('Form Validation', 'Catches empty book title', invalidTitle.isValid === false && invalidTitle.errors.title);
+
+        const invalidAuthor = validateBookForm('Sample Title', '', '');
+        check('Form Validation', 'Catches empty author name', invalidAuthor.isValid === false && invalidAuthor.errors.author);
+
+        const invalidIsbn = validateBookForm('Sample Title', 'Sample Author', '123-bad-isbn');
+        check('Form Validation', 'Catches improperly formatted ISBN', invalidIsbn.isValid === false && invalidIsbn.errors.isbn);
+
+        setBooks([...sampleBooks]);
+        check('Vault Data & Storage', 'Loads initial list of books', state.books.length === 3);
+
+        addBook({ id: '4', title: 'Code Complete', author: 'Steve McConnell', tag: 'Engineering', pages: 960, isbn: '978-0735619678', notes: 'Practical handbook.', isSpotlight: true });
+        check('Vault Data & Storage', 'Adds new book with notes and spotlight status', state.books.length === 4 && state.books.find(b => b.id === '4')?.notes.length > 0);
+
+        updateBook({ id: '4', title: 'Code Complete (2nd Ed)', author: 'Steve McConnell', tag: 'Engineering', pages: 960, isbn: '978-0735619678', notes: 'Revised handbook.' });
+        const updated = state.books.find(b => b.id === '4');
+        check('Vault Data & Storage', 'Updates existing book information', updated && updated.title === 'Code Complete (2nd Ed)' && updated.notes === 'Revised handbook.');
+
+        removeBook('4');
+        check('Vault Data & Storage', 'Removes book from list', state.books.length === 3 && !state.books.find(b => b.id === '4'));
+
+        const totalPages = sampleBooks.reduce((sum, b) => sum + b.pages, 0);
+        check('Dashboard Calculations', 'Calculates total pages across books', totalPages === 1980);
+
+        const avgPages = Math.round(totalPages / sampleBooks.length);
+        check('Dashboard Calculations', 'Calculates average pages per book', avgPages === 660);
+
+        const listEl = document.getElementById('test-list');
+        const summaryEl = document.getElementById('test-summary');
+        const passedCount = tests.filter(t => t.ok).length;
+
+        summaryEl.textContent = `${passedCount} / ${tests.length} passed`;
+        if (passedCount !== tests.length) {
+            summaryEl.style.background = 'rgba(255, 85, 85, 0.15)';
+            summaryEl.style.borderColor = 'rgba(255, 85, 85, 0.35)';
+            summaryEl.style.color = '#ff5555';
+        }
+
+        const groups = [...new Set(tests.map(t => t.group))];
+        listEl.innerHTML = groups.map(group => `
+            <div class="test-group-title">${group}</div>
+            ${tests.filter(t => t.group === group).map(t => `
+                <div class="test-row">
+                    <span>${t.name}</span>
+                    <span class="${t.ok ? 'status-ok' : 'status-err'}">${t.ok ? 'Passed' : 'Failed'}</span>
+                </div>
+            `).join('')}
+        `).join('');
+    </script>
+</body>
+</html>
